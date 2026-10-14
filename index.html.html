@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Beneficios de un Día Soleado</title>
+    <style>
+        :root {
+            --bg-color: #fffaed;
+            --text-color: #333333;
+            --accent-color: #ff9900;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --header-color: #e67e22;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.5s ease, color 0.5s ease;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #ffeb3b, #ff9800);
+            color: #fff;
+            transition: background 0.5s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .benefit-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: background 0.5s ease, color 0.5s ease, transform 0.3s ease, box-shadow 0.5s ease;
+            border-left: 6px solid var(--accent-color);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: var(--header-color);
+            margin-top: 0;
+            font-size: 1.8rem;
+            transition: color 0.5s ease;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: opacity 0.5s ease;
+        }
+
+        footer a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Indicador de desplazamiento */
+        #scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: #ff9800;
+            width: 0%;
+            z-index: 1000;
+            transition: background 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="scroll-indicator"></div>
+
+    <header id="main-header">
+        <h1>El Esplendor del Sol</h1>
+        <p>Descubre cómo la luz brillante transforma nuestro cuerpo y nuestra mente.</p>
+    </header>
+
+    <div class="container">
+        <section class="benefit-card">
+            <h2>1. Vitalidad y Energía Renovada</h2>
+            <p>La exposición a la luz solar directa estimula la producción natural de vitamina D, fortalece nuestros huesos, mejora el sistema inmunológico y llena cada célula de nuestro cuerpo con una calidez vibrante y optimista.</p>
+        </section>
+
+        <section class="benefit-card">
+            <h2>2. Felicidad y Bienestar Mental</h2>
+            <p>Los rayos del sol elevan los niveles de serotonina, el neurotransmisor responsable de regular el estado de ánimo. Un día despejado aleja la melancolía, trae claridad mental y nos invita a sonreír y disfrutar al aire libre.</p>
+        </section>
+
+        <section class="benefit-card">
+            <h2>3. Sincronización y Descanso Profundo</h2>
+            <p>La luz diurna ayuda a regular nuestro reloj biológico interno (ritmo circadiano). Al exponernos al sol durante el día, nuestro cuerpo produce melatonina de forma adecuada por la noche, asegurando un sueño reparador y profundo.</p>
+        </section>
+
+        <section class="benefit-card">
+            <h2>4. El Calor que Todo lo Penetra</h2>
+            <p>A medida que el sol asciende, su calor se vuelve implacable. La luz ya no solo calienta la piel; comienza a quemar las sombras, revelando grietas en el suelo, rincones ocultos que nunca debieron ser abiertos y una quietud extraña en el ambiente.</p>
+        </section>
+
+        <section class="benefit-card">
+            <h2>5. La Presencia Invisible</h2>
+            <p>El cielo sigue azul, pero el aire se vuelve pesado y frío. Notas que las sombras se mueven por sí solas, alargándose de forma innatural. El calor ya no consuela; sofoca. Algo te observa desde la luz cegadora, esperando a que caiga la noche definitiva.</p>
+        </section>
+    </div>
+
+    <footer id="main-footer-text">
+        <a href="https://www.mediafire.com/file/gl64trk3hhv5s57/SSD.rar/file" target="_blank">&copy;</a> 2026 - Todos los derechos reservados bajo la luz del sol... o lo que queda de ella.
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight);
+
+            // Actualizar barra de progreso
+            const indicator = document.getElementById('scroll-indicator');
+            indicator.style.width = (scrollPercent * 100) + '%';
+
+            // Interpolación de colores: De brillante/soleado a oscuro/aterrador
+            const rBg = Math.round(255 - scrollPercent * (255 - 8));
+            const gBg = Math.round(250 - scrollPercent * (250 - 3));
+            const bBg = Math.round(237 - scrollPercent * (237 - 9));
+
+            const rText = Math.round(51 + scrollPercent * (176 - 51));
+            const gText = Math.round(51 + scrollPercent * (168 - 51));
+            const bText = Math.round(51 + scrollPercent * (185 - 51));
+
+            const rAccent = Math.round(255 - scrollPercent * (255 - 60));
+            const gAccent = Math.round(153 - scrollPercent * (153 - 10));
+            const bAccent = Math.round(0 + scrollPercent * 80);
+
+            // Aplicar estilos dinámicos al documento
+            document.body.style.backgroundColor = `rgb(${rBg}, ${gBg}, ${bBg})`;
+            document.body.style.color = `rgb(${rText}, ${gText}, ${bText})`;
+
+            const header = document.getElementById('main-header');
+            const headerRed = Math.round(255 - scrollPercent * 245);
+            const headerGreen = Math.round(235 - scrollPercent * 232);
+            const headerBlue = Math.round(59 - scrollPercent * 39);
+            header.style.background = `linear-gradient(135deg, rgb(${headerRed}, ${headerGreen}, ${headerBlue}), rgb(${Math.round(255 - scrollPercent*245)}, ${Math.round(152 - scrollPercent*150)}, ${Math.round(0 + scrollPercent*20)}))`;
+
+            // Actualizar tarjetas
+            const cards = document.querySelectorAll('.benefit-card');
+            cards.forEach((card, index) => {
+                const cardFactor = Math.min(1, scrollPercent * 1.2);
+                const cr = Math.round(255 - cardFactor * 235);
+                const cg = Math.round(255 - cardFactor * 245);
+                const cb = Math.round(255 - cardFactor * 235);
+                card.style.backgroundColor = `rgba(${cr}, ${cg}, ${cb}, ${0.85 - cardFactor*0.3})`;
+                
+                const currentAccentR = Math.round(255 - scrollPercent * 200);
+                const currentAccentG = Math.round(153 - scrollPercent * 140);
+                const currentAccentB = Math.round(0 + scrollPercent * 20);
+                card.style.borderLeftColor = `rgb(${currentAccentR}, ${currentAccentG}, ${currentAccentB})`;
+            });
+
+            // Títulos dentro de las tarjetas
+            const h2s = document.querySelectorAll('h2');
+            h2s.forEach((h2, idx) => {
+                const h2r = Math.round(230 - scrollPercent * 120);
+                const h2g = Math.round(126 - scrollPercent * 120);
+                const h2b = Math.round(34 + scrollPercent * 40);
+                h2.style.color = `rgb(${h2r}, ${h2g}, ${h2b})`;
+            });
+
+            indicator.style.backgroundColor = `rgb(${rAccent}, ${gAccent}, ${bAccent})`;
+        });
+    </script>
+</body>
+</html>
